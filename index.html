@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TP29 Statement</title>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        input { padding: 8px; margin-right: 10px; }
+    </style>
+</head>
+<body>
 
+<h2>TP29 Final Plot Statement</h2>
+
+<input type="text" id="tpSearch" placeholder="Search TP No">
+<input type="text" id="fpSearch" placeholder="Search FP No">
+<button onclick="filterData()">Search</button>
+
+<table>
+    <thead>
+        <tr>
+            <th>TP No</th>
+            <th>FP No</th>
+            <th>Ward</th>
+            <th>Purpose</th>
+            <th>Area</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody">
+    </tbody>
+</table>
+
+<script src="script.js"></script>
+
+</body>
+</html>
