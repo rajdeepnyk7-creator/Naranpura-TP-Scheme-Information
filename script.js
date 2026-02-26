@@ -6,7 +6,7 @@ fetch("data/statement.json")
 
 originalData = data;
 
-console.log("HEADERS:");
+console.log("Column Names:");
 console.log(Object.keys(data[0]));
 
 displayData(data);
@@ -16,6 +16,7 @@ displayData(data);
 function displayData(data) {
 
 const tableBody = document.getElementById("tableBody");
+
 tableBody.innerHTML = "";
 
 data.forEach(item => {
@@ -36,3 +37,24 @@ tableBody.innerHTML += row;
 
 });
 }
+
+
+function filterData() {
+
+const tpValue = document.getElementById("tpSearch").value.toLowerCase();
+
+const fpValue = document.getElementById("fpSearch").value.toLowerCase();
+
+const filtered = originalData.filter(item => {
+
+const keys = Object.keys(item);
+
+return item[keys[3]].toString().toLowerCase().includes(tpValue) &&
+item[keys[6]].toString().toLowerCase().includes(fpValue);
+
+});
+
+displayData(filtered);
+
+}
+]
