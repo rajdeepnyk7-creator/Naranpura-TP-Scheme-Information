@@ -1,38 +1,46 @@
 let originalData = [];
 
 fetch("data/statement.json")
-    .then(response => response.json())
-    .then(data => {
-        originalData = data;
-        displayData(data);
-    });
+.then(response => response.json())
+.then(data => {
+    originalData = data;
+    displayData(data);
+});
 
 function displayData(data) {
+
     const tableBody = document.getElementById("tableBody");
     tableBody.innerHTML = "";
 
     data.forEach(item => {
+
         const row = `
-            <tr>
-                <td>${item.tp_no}</td>
-                <td>${item.fp_no}</td>
-                <td>${item.ward}</td>
-                <td>${item.purpose}</td>
-                <td>${item.area}</td>
-            </tr>
+        <tr>
+            <td>${item["T.P.S. NO."]}</td>
+            <td>${item["F.P. NO."]}</td>
+            <td>${item["Ward"]}</td>
+            <td>${item["PURPOSE"]}</td>
+            <td>${item["AREA IN SQ MT"]}</td>
+        </tr>
         `;
+
         tableBody.innerHTML += row;
+
     });
 }
 
 function filterData() {
-    const tpValue = document.getElementById("tpSearch").value.toLowerCase();
-    const fpValue = document.getElementById("fpSearch").value.toLowerCase();
 
-    const filtered = originalData.filter(item =>
-        item.tp_no.toString().toLowerCase().includes(tpValue) &&
-        item.fp_no.toString().toLowerCase().includes(fpValue)
-    );
+const tpValue = document.getElementById("tpSearch").value.toLowerCase();
+const fpValue = document.getElementById("fpSearch").value.toLowerCase();
 
-    displayData(filtered);
+const filtered = originalData.filter(item =>
+
+item["T.P.S. NO."].toString().toLowerCase().includes(tpValue) &&
+item["F.P. NO."].toString().toLowerCase().includes(fpValue)
+
+);
+
+displayData(filtered);
+
 }
